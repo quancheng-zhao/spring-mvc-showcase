@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Request>
-    <Header>
-        <Id>TestId</Id>
-        <Name>TestName</Name>
-    </Header>
-</Request>
