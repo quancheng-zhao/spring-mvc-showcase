@@ -24,7 +24,7 @@ public class ResourceController {
             consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE},
             produces = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     @ResponseStatus(OK)
-    public ActionResponse postJavaxBody(@Valid @RequestBody XMLJavaxRequest xmlRequest) {
+    public String postJavaxBody(@Valid @RequestBody XMLJavaxRequest xmlRequest) {
         StringBuilder sb = new StringBuilder();
         if (xmlRequest.getHeader() != null) {
             sb.append("javax header is not null\n");
@@ -36,14 +36,12 @@ public class ResourceController {
             if (xmlRequest.getHeader().getName() != null) {
                 sb.append("javax header's name is not null\n");
             } else {
-                sb.append("javax header's id is null\n");
+                sb.append("javax header's name is null\n");
             }
         } else {
             sb.append("javax header is null");
         }
-        ActionResponse actionResponse = new ActionResponse();
-        actionResponse.setStatus(sb.toString());
-        return actionResponse;
+        return sb.toString();
     }
 
     //    @Override
@@ -52,7 +50,7 @@ public class ResourceController {
             consumes = {APPLICATION_XML_VALUE, TEXT_XML_VALUE},
             produces = {APPLICATION_XML_VALUE, TEXT_XML_VALUE})
     @ResponseStatus(OK)
-    public ActionResponse postJacksonXMLBody(@Valid @RequestBody XMLJacksonRequest xmlRequest) {
+    public String postJacksonXMLBody(@Valid @RequestBody XMLJacksonRequest xmlRequest) {
         StringBuilder sb = new StringBuilder();
         if (xmlRequest.getHeader() != null) {
             sb.append("jackson xml header is not null\n");
@@ -64,13 +62,11 @@ public class ResourceController {
             if (xmlRequest.getHeader().getName() != null) {
                 sb.append("jackson xml header's name is not null\n");
             } else {
-                sb.append("jackson xml header's id is null\n");
+                sb.append("jackson xml header's name is null\n");
             }
         } else {
             sb.append("jackson xml header is null");
         }
-        ActionResponse actionResponse = new ActionResponse();
-        actionResponse.setStatus(sb.toString());
-        return actionResponse;
+        return sb.toString();
     }
 }
